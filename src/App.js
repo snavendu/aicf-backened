@@ -15,7 +15,7 @@ function App() {
       <Router>
 
         <Switch>
-          <Route path="/prs">
+          <Route path="/">
             <Form />
           </Route>
 
