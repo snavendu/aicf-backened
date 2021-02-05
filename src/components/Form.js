@@ -38,8 +38,8 @@ function onChange(e) {
 const renderForm = () => {
     return (
         <>
-            <Row >
-                <Col>   
+            <Row gutter={[30, 20]}>
+                <Col span={8}>   
                     
                 <Form.Item
                     name="Full Name"
@@ -58,7 +58,7 @@ const renderForm = () => {
                 <Input />
                     </Form.Item>
                 </Col>
-                <Col>
+                <Col span={8}>
                     
                 <Form.Item
                     name="Telephone/Fax"
@@ -68,7 +68,7 @@ const renderForm = () => {
                     </Form.Item>
 
                 </Col>
-                <Col>
+                <Col span={8}>
                 <Form.Item
                     name="Email"
                     label="Email"
@@ -87,9 +87,9 @@ const renderForm = () => {
                     </Form.Item>
                 </Col>                
             </Row>
-            <Row>
+            <Row gutter={[30, 20]}>
                 
-                <Col span={4}>
+                <Col span={8}>
                     <Form.Item name="State" label="State" rules={[{ required: true, message: 'Missing State' }]}>
                         <Select options={areas} />
                     </Form.Item>
@@ -110,7 +110,7 @@ const renderForm = () => {
                     <Input />
                 </Form.Item>
                 </Col>
-                <Col span={6}>
+                <Col span={8}>
                     <Form.Item name="Relationship" label="Relationship" rules={[{ required: true, message: 'Add relationship' }]}>
                         <Select options={areas} />
                     </Form.Item>
@@ -118,15 +118,15 @@ const renderForm = () => {
             </Row>
             
 
-            <Row>
+            <Row gutter={[ 30, 20]}>
                 
-                <Col span={4}>
+                <Col span={6}>
                     <Form.Item name="Gender" label="Gender" rules={[{ required: true, message: 'Select Gender' }]}>
                         <Select options={areas} />
                     </Form.Item>
                 </Col>
 
-                <Col>
+                <Col span={6}>
                 <Form.Item
                     name="Mother-tounge"
                     label="Mother Tounge"
@@ -134,7 +134,7 @@ const renderForm = () => {
                     <Input />
                 </Form.Item>
                 </Col>
-                <Col>
+                <Col span={6}>
                 <Form.Item
                     name="Mobile Phone"
                     label="Mobile Phone"
@@ -142,7 +142,7 @@ const renderForm = () => {
                     <Input />
                 </Form.Item>
                 </Col>
-                <Col>
+                <Col span={6}>
                 <Form.Item
                     name="Date of Birth"
                     label="Date of Birth"
@@ -153,39 +153,44 @@ const renderForm = () => {
                 
             </Row>
 
-            <Row>
-                <Col>
+            <Row gutter={[ 30, 20]}>
+                <Col span={12}>
                     <Form.Item
                         name="Address"
                         label="Address">
-                        <TextArea rows={4} />
+                        <TextArea rows={2} />
                     </Form.Item>
                 </Col>
             </Row>
 
-            <Row>
-                <Col>
-                    <h4>(jpg, png or gif images only. 160x200 pixels (width x height). Maximum size 1000 KB)</h4>
+            <Row style={{ marginTop: 20 }}>
+                <Col span={10}>
                     <Upload {...props}>
-                        <Button type="dashed" icon={<UploadOutlined />}>Passport Size Photo</Button>
+                        <Button type="default" icon={<UploadOutlined />}>Passport Size Photo</Button>
                     </Upload>
+                    
+                    <h4 style={{marginTop: 20}}>
+                        (jpg, png or gif images only. 160x200 pixels (width x height). Maximum size 1000 KB)
+                        </h4>
+
                 </Col>
-                <Col>
-                    <h4>(Maximum size 1000 KB)</h4>
+                <Col span={10} offset={4}>
                     <Upload {...props}>
-                        <Button type="dashed" icon={<UploadOutlined />}>Birth Certificate</Button>
+                        <Button type="default" icon={<UploadOutlined />}>Birth Certificate</Button>
                     </Upload>
+                    <h4 style={{marginTop: 20}}>(Maximum size 1000 KB)</h4>
+
                 </Col>
             </Row>
 
-            <Row>
-                <Col>
+            <Row gutter={[ 30,20]} style={{ marginTop: 20, marginBottom: 20}}>
+                <Col span={8}>
                     <h3>Select Type</h3>
                     <Checkbox onChange={onChange}>Player</Checkbox>
                     <Checkbox onChange={onChange}>Arbiter</Checkbox>
                     <Checkbox onChange={onChange}>Coach</Checkbox>
                 </Col>
-                <Col>
+                <Col span={8}>
                     <h3>Are you a PIO/OCI</h3>
                     <Radio>Yes</Radio>
                     <Radio>No</Radio>
@@ -193,26 +198,12 @@ const renderForm = () => {
             </Row>
             
 
-            <Row>
+            <Row justify="end">
                 <Col>
-                <Form.Item
-          name="agreement"
-          valuePropName="checked"
-          rules={[
-            {
-              validator: (_, value) =>
-                value ? Promise.resolve() : Promise.reject('Should accept agreement'),
-            },
-          ]}
-          
-        >
-          <Checkbox>
-            I have read the <a href="/home">agreement</a>
-          </Checkbox>
-        </Form.Item>
+                
         <Form.Item >
-          <Button type="primary" htmlType="submit">
-            Register
+          <Button type="primary" size="large" htmlType="submit">
+            Submit Form
           </Button>
         </Form.Item>
                 </Col>
@@ -242,7 +233,21 @@ export default function FormPRS() {
 
 
     return (
-        <div style={{ margin: '40px', width: '100%'}}>
+        <div style={{ margin: '40px' }}>
+            
+            <div style={{ marginBottom: 40}}>
+
+            <h2>
+                All India Chess Federation
+        </h2>
+            
+            <p>
+                    For existing players please go to your player page and click on extend membership
+            </p>
+                
+            </div>
+
+            
 
         <Form
         form={form}
