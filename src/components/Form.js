@@ -154,7 +154,7 @@ const renderForm = () => {
 
             <Row gutter={[30, 20]}>
 
-            <Col span={8}>
+            <Col span={12}>
                 <Form.Item
                     name="SonDaughterOf"
                     label="Son/Daugher of"
@@ -169,67 +169,81 @@ const renderForm = () => {
                 </Col>
 
                 
-                <Col span={8}>
+                <Col span={12}>
                     <Form.Item name="Relationship" label="Relationship" rules={[{ required: true, message: 'Select Relationship' }]}>
                         <Select options={relation} />
                     </Form.Item>
                 </Col>
 
-                <Col span={8}>
-                <Form.Item
-                    name="MotherTounge"
-                    label="Mother Tounge">
-                    <Input />
-                </Form.Item>
-                </Col>
+                
             </Row>
             
             {/* Row number 4 */}
             
             <Row gutter={[30, 40]}>
                 
+            <Col span={12}>
+                <Form.Item
+                    name="MotherTounge"
+                    label="Mother Tounge">
+                    <Input />
+                </Form.Item>
+                </Col>
             
 
                 
-                <Col span={8}>
+                <Col span={12}>
                     <Form.Item name="Gender" label="Gender" rules={[{ required: true, message: 'Add Gender' }]}>
                         <Select options={gender} />
                     </Form.Item>
                 </Col>
                 
-                <Col span={12} offset={2}>
-                <Form.Item
-                    name="Date of Birth"
-                    label="Date of Birth"
-                    >
-                    <DatePicker onChange={onChangeDate} />
-
-                </Form.Item>
-                </Col>
+                
                 
             </Row>
 
              {/* Row number 5 */}
 
-            <Row gutter={[ 30, 20]}>
-                <Col span={6}>
+            <Row gutter={[30, 20]}>
+                
+            <Col span={12}>
+                <Form.Item
+                    name="Date of Birth"
+                    label="Date of Birth"
+                    >
+                    <DatePicker style={{ width: '100%'}} onChange={onChangeDate} />
+
+                </Form.Item>
+                </Col>
+                <Col span={12}>
                     <Form.Item
                         name="Address"
                         label="Address">
-                        <TextArea rows={2} />
+                        <TextArea rows={1} />
                     </Form.Item>
                 </Col>
-                <Col span={6}>
+            </Row>
+            
+            
+            
+            <Row gutter={[30, 20]}>
+                
+                <Col span={12}>
                     <Form.Item name="city" label="City" rules={[{ required: true, message: 'Add City' }]}>
                         <Input />
                     </Form.Item>
                 </Col>
-                <Col span={6}>
+
+                <Col span={12}>
                     <Form.Item name="district" label="District" rules={[{ required: true, message: 'Add City' }]}>
                         <Input />
                     </Form.Item>
                 </Col>
-                <Col span={6}>
+
+            </Row>
+            <Row gutter={[30, 20]}>
+                
+                <Col span={12}>
                     <Form.Item name="state" label="State" rules={[{ required: true, message: 'Add City' }]}>
                         <Input />
                     </Form.Item>
@@ -239,14 +253,14 @@ const renderForm = () => {
             {/* Row number 6 */}
             
 
-            <Row gutter={[ 30,20]} style={{ marginTop: 10, marginBottom: 20}}>
-                <Col span={8}>
+            <Row gutter={[ 200,20]} style={{ marginTop: 10, marginBottom: 20}}>
+                <Col>
                     <h3>Select Type</h3>
                     <Checkbox onChange={onChange}>Player</Checkbox>
                     <Checkbox onChange={onChange}>Arbiter</Checkbox>
                     <Checkbox onChange={onChange}>Coach</Checkbox>
                 </Col>
-                <Col span={8}>
+                <Col>
                     <h3>Are you a PIO/OCI</h3>
                     <Radio>Yes</Radio>
                     <Radio>No</Radio>
@@ -260,7 +274,7 @@ const renderForm = () => {
 
 
              <Row style={{marginTop: '30px'}}>
-                <Col span={8}>
+                <Col span={5}>
                     <Upload {...props}>
                         <Button type="default" icon={<UploadOutlined />}>Passport Size Photo</Button>
                     </Upload>
@@ -280,14 +294,14 @@ const renderForm = () => {
             </Row>
             
 
-            <Row>
+            <Row style={{marginTop: '30px'}}>
                 <Col>
                 
-        <Form.Item >
-          <Button type="primary" size="large" htmlType="submit">
-            Submit Form
-          </Button>
-        </Form.Item>
+                    <Form.Item >
+                    <Button type="primary" size="large" htmlType="submit">
+                        Submit Form
+                    </Button>
+                    </Form.Item>
                 </Col>
             </Row>
 
@@ -375,7 +389,8 @@ export default function FormPRS() {
                             form={form}
                             name="register"
                             onFinish={onFinish}
-                            scrollToFirstError
+                                scrollToFirstError
+                                layout="vertical"
                         >
         
   
