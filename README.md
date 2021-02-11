@@ -46,6 +46,3 @@ Then open [http://localhost:3000/](http://localhost:3000/) on your web browser.
 
 For deployment, run `npm run build` and upload `build/` to your server.
 
-## License
-
-MIT · [Lucas Bassetti](http://lucasbassetti.com.br)
