@@ -1,13 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+require("dotenv").config();
+Promise = require("bluebird");
+require("./extensions/response-handler");
 
-import App from './App';
+const express = require("express"),
+    config = require("./config"),
+     cors = require('cors'),
+    debug = require("debug")("app:server"),
+    { web, api } = require("./routes");
 
+const app = express();
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+app.use(cors());
 
+app.use(web);
+app.use("/api", api);
+
+require("./models/connection");
+app.listen(config.app.port, config.app.host, () => {
+    debug("> Server started http://%s:%s", config.app.host, config.app.port);
+});
