@@ -4,7 +4,7 @@ require("./extensions/response-handler");
 
 const express = require("express"),
     config = require("./config"),
-     cors = require('cors'),
+    cors = require("cors"),
     debug = require("debug")("app:server"),
     { web, api } = require("./routes");
 
@@ -16,6 +16,6 @@ app.use(web);
 app.use("/api", api);
 
 require("./models/connection");
-app.listen(config.app.port, config.app.host, () => {
-    debug("> Server started http://%s:%s", config.app.host, config.app.port);
+app.listen(process.env.PORT, () => {
+    debug("> Server started http://%s:%s");
 });
