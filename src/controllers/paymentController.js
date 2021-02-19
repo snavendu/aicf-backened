@@ -35,7 +35,7 @@ const createOrder = async (req, res) => {
 
         await Transaction.query().insert({
             receipt_id: order.receipt,
-            amount: order.amount,
+            amount: amount,
             order_id: order.id,
             created_at: moment
                 .unix(order.created_at)
