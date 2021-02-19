@@ -16,6 +16,6 @@ app.use(web);
 app.use("/api", api);
 
 require("./models/connection");
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3001, () => {
     debug("> Server started http://%s:%s");
 });
