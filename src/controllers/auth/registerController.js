@@ -13,7 +13,6 @@ exports.register = async (req, res) => {
     const contact = await Contact.query().insert(body);
     req.file.map(async (file) => {
         const dirPath = path.join(__dirname, "../../assets/uploads/");
-        const dirPath2 = path.join(__dirname, "../../assets/temp/");
         const path1 = dirPath + file.originalname;
         console.log(file);
         await Documents.query().insert({
