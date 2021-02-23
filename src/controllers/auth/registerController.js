@@ -21,20 +21,20 @@ exports.register = async (req, res) => {
       amount: 500
     });
 
-    if(req.file){
-        req.file.map(async (file) => {
-            const dirPath = path.join(__dirname, "../../assets/uploads/");
-            const path1 = dirPath + file.originalname;
-            console.log(file);
-            await Documents.query().insert({
-                file_type: "image",
-                file_name: path1,
-                type_id: file.fieldname,
-                contact_id: contact.id,
-            });
-            // .then((image) => fs.writeFileSync(dirPath2 + image.file_name));
-        });
-    }
+    // if(req.file){
+    //     req.file.map(async (file) => {
+    //         const dirPath = path.join(__dirname, "../../assets/uploads/");
+    //         const path1 = dirPath + file.originalname;
+    //         console.log(file);
+    //         await Documents.query().insert({
+    //             file_type: "image",
+    //             file_name: path1,
+    //             type_id: file.fieldname,
+    //             contact_id: contact.id,
+    //         });
+    //         // .then((image) => fs.writeFileSync(dirPath2 + image.file_name));
+    //     });
+    // }
 
     // const token = jwt.sign({iat: (new Date).getTime(), sub: user.id}, config.key);
     return {contact, order};
