@@ -1,11 +1,12 @@
 const Razorpay = require("razorpay");
-const Transaction = require("./../models/transaction");
+const Transaction = require("./../models/Order");
 const Contact = require("./../models/Contact");
 const Product = require("./../models/product");
 const moment = require("moment");
 const shortid = require("shortid");
 const RAZORPAY_KEY_ID = "rzp_test_hNtKQvpYRE730Z";
 const RAZORPAY_SECRET = "kBrFjTWgJH20GZE2B0RJrXgZ";
+
 const createOrder = async (req, res) => {
     const { id, player } = req.body;
     const pl = player.split(",");

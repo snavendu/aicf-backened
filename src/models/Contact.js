@@ -8,14 +8,14 @@ class Contact extends Model {
         return json;
     }
     static get relationMappings() {
-        const transac = require("./transaction");
+        const transac = require("./Order");
         return {
             trasaction: {
                 relation: Model.HasOneRelation,
                 modelClass: transac,
                 join: {
                     from: "contacts.payment_id",
-                    to: "payment_response.receipt_id",
+                    to: "orders.id",
                 },
             },
         };
